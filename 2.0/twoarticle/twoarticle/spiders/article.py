@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import CrawlSpider, Rule
+from scrapy.spiders import Rule
+from scrapy_redis.spiders import RedisCrawlSpider
 from twoarticle.items import TwoarticleItem
 
-class ArticleSpider(CrawlSpider):
+class ArticleSpider(RedisCrawlSpider):
     name = 'article'
+
     allowed_domains = ['www.027it.cn']
-    start_urls = ['http://www.027it.cn/list-%d-0.html' % i for i in range(1,216)]
-    # start_urls = ['http://www.027it.cn/list-215-0.html']
+
+    redis_key = "articlespider:start_urls"
+    # start_urls = ['http://www.027it.cn/list-%d-0.html' % i for i in range(1,216)]
     pagelink = LinkExtractor(allow=r'http://www.027it.cn/list-\d+-\d+.html')
     contentlink = LinkExtractor(allow=r'http://www.027it.cn/article-\d+-\d+-\d+.html')
     rules = (
-        Rule(contentlink, callback = 'parse_item',follow=True),
+        Rule(contentlink, callback = 'parse_item'),
         Rule(pagelink),
     )
 

@@ -15,9 +15,9 @@ SPIDER_MODULES = ['fengniao.spiders']
 NEWSPIDER_MODULE = 'fengniao.spiders'
 #LOG_FILE = "picture.log"
 #LOG_LEVEL = "DEBUG"
-REDIS_HOST = "119.23.246.10"
+REDIS_HOST = "127.0.0.1"
 REDIS_PORT = 6379
-REDIS_PARAMS = {'password':'D520109k'}
+REDIS_PARAMS = {'password':'123456'}
 
 # 附加的
 # 使用了scrapy-redis里的去重组件，不使用scrapy默认的去重
@@ -33,11 +33,11 @@ SCHEDULER_PERSIST = True
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-MYSQL_HOST='119.23.246.10'
-MYSQL_USER='itarvin'
+MYSQL_HOST='127.0.0.1'
+MYSQL_USER='root'
 
 #你自己数据库的密码
-MYSQL_PASSWORD='D520109k'
+MYSQL_PASSWORD='root'
 MYSQL_PORT =3306
 
 #你自己数据库的名称

@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import Rule
-from scrapy_redis.spiders import RedisCrawlSpider
+from scrapy.spiders import CrawlSpider, Rule
 from fengniao.items import FengniaoItem
 
-class FengSpider(RedisCrawlSpider):
+class FengSpider(CrawlSpider):
     name = 'feng'
-    
     allowed_domains = ['pp.fengniao.com']
-
-    redis_key = "fengspider:start_urls"
-
+    # 如果遇到网页状态为404,500/\
+    handle_httpstatus_list = [404, 500]
+    start_urls = ['https://pp.fengniao.com/album_%d.html' % i for i in range(1,37)]
     pagelink = LinkExtractor(allow=r'http://pp.fengniao.com/album_\d+_\d+.html')
     contentlink = LinkExtractor(allow=r'https://pp.fengniao.com/\d+.html')
 

@@ -13,31 +13,19 @@ BOT_NAME = 'fengniao'
 
 SPIDER_MODULES = ['fengniao.spiders']
 NEWSPIDER_MODULE = 'fengniao.spiders'
-#LOG_FILE = "picture.log"
-#LOG_LEVEL = "DEBUG"
-REDIS_HOST = "119.23.246.10"
-REDIS_PORT = 6379
-REDIS_PARAMS = {'password':'D520109k'}
+LOG_FILE = "picture.log"
+LOG_LEVEL = "DEBUG"
 
-# 附加的
-# 使用了scrapy-redis里的去重组件，不使用scrapy默认的去重
-DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
-# 使用了scrapy-redis里的调度器组件，不实用scrapy默认的调度器
-SCHEDULER = "scrapy_redis.scheduler.Scheduler"
-# 使用队列形式
-SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderQueue"
-# 允许暂停，redis请求记录不丢失
-SCHEDULER_PERSIST = True
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'fengniao (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-MYSQL_HOST='119.23.246.10'
-MYSQL_USER='itarvin'
+MYSQL_HOST='127.0.0.1'
+MYSQL_USER='root'
 
 #你自己数据库的密码
-MYSQL_PASSWORD='D520109k'
+MYSQL_PASSWORD='root'
 MYSQL_PORT =3306
 
 #你自己数据库的名称
@@ -90,7 +78,6 @@ DEFAULT_REQUEST_HEADERS = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'fengniao.pipelines.FengniaoPipeline': 300,
-   'scrapy_redis.pipelines.RedisPipeline': 400,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
