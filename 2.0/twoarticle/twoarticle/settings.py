@@ -33,16 +33,16 @@ SCHEDULER_PERSIST = True
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-# MYSQL_HOST='127.0.0.1'
-# MYSQL_USER='root'
+MYSQL_HOST='127.0.0.1'
+MYSQL_USER='root'
 
 #你自己数据库的密码
-# MYSQL_PASSWORD='root'
-# MYSQL_PORT =3306
+MYSQL_PASSWORD='root'
+MYSQL_PORT =3306
 
 #你自己数据库的名称
-# MYSQL_DB='hake'
-# CHARSET='utf8'
+MYSQL_DB='hake'
+CHARSET='utf8'
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 

@@ -7,11 +7,6 @@ settings = get_project_settings()
 def process_item():
     # 创建redis数据库连接
     rediscli = redis.Redis(host = "127.0.0.1", password='123456', port = 6379, db = 0)
-
-    # 创建mysql数据库连接
-    mysqlcli = pymysql.connect(host = "127.0.0.1", port = 3306, \
-        user = "itarvin", passwd = "123456", db = "hake")
-
     offset = 0
     error = 0
 
