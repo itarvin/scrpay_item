@@ -6,7 +6,7 @@ settings = get_project_settings()
 
 def process_item():
     # 创建redis数据库连接
-    rediscli = redis.Redis(host = "119.23.246.10", password='D520109k', port = 6379, db = 0)
+    rediscli = redis.Redis(host = "127.0.0.1", password='root', port = 6379, db = 0)
 
     offset = 0
     error = 0
